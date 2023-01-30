@@ -10,7 +10,6 @@ $(document).ready(function () {
 
   // sets items to local storage
   $('.saveBtn').click(function () {
-    preventDefault();
     var timeBlockId = $(this).parent().attr('id');
     localStorage.setItem('timeBlockId', timeBlockId);
 
@@ -44,6 +43,16 @@ $(document).ready(function () {
     function setColor(element, color) {
       element.style.backgroundColor = color;
     }
+
+    $('#9 .description').val(localStorage.getItem('9AM'));
+    $('#10 .description').val(localStorage.getItem('10AM'));
+    $('#11 .description').val(localStorage.getItem('11AM'));
+    $('#12 .description').val(localStorage.getItem('12pm'));
+    $('#13 .description').val(localStorage.getItem('1pm'));
+    $('#14 .description').val(localStorage.getItem('2pm'));
+    $('#15 .description').val(localStorage.getItem('3pm'));
+    $('#16 .description').val(localStorage.getItem('4pm'));
+    $('#17 .description').val(localStorage.getItem('5pm'));
 
   });
 });
