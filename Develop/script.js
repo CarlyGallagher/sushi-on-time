@@ -1,6 +1,5 @@
-let currentDate = new Date();
-let time = currentDate.getHours() + ":" + currentDate.getMinutes();
-console.log(time);
+//format in military time
+let time = parseInt(dayjs().format('H'));
 
 $(document).ready(function () {
 
@@ -19,7 +18,7 @@ $(document).ready(function () {
 
   });
 
-
+// creates the time block color and checks the time
   var rows = document.getElementsByClassName("row");
   Array.from(rows).forEach(row => {
     let
@@ -31,19 +30,15 @@ $(document).ready(function () {
     if (rowHour) {
       // Compares row id to current hour and sets color accordingly
       if (time === rowHour) {
-        setColor(row, "red");
-      } else if ((time < rowHour) && (time > rowHour - 6)) {
-        setColor(row, "green");
-      } else if ((time > rowHour) && (time < rowHour + 6)) {
-        setColor(row, "lightgrey");
+        row.classList.add('present');
+
+      } else if (time < rowHour) {
+        row.classList.add('future');
       } else {
-        setColor(row, "white");
+        row.classList.add('past');
       }
     }
-    function setColor(element, color) {
-      element.style.backgroundColor = color;
-    }
-
+// gets item from local storage
     $('#9 .description').val(localStorage.getItem('9AM'));
     $('#10 .description').val(localStorage.getItem('10AM'));
     $('#11 .description').val(localStorage.getItem('11AM'));
